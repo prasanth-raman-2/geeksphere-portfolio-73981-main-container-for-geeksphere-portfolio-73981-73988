@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+  
+  body {
+    @apply font-code bg-geek-primary text-geek-text;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-geek-secondary;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg transition-all duration-200 font-medium;
+  }
+
+  .btn-primary {
+    @apply bg-geek-secondary text-geek-primary hover:bg-geek-accent hover:shadow-lg hover:shadow-geek-accent/20;
+  }
+
+  .section {
+    @apply py-16 px-4 md:px-6 lg:px-8 min-h-screen flex flex-col justify-center;
+  }
+
+  .nav-link {
+    @apply relative text-geek-text hover:text-geek-secondary transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 -bottom-1 w-0 h-0.5 bg-geek-secondary transition-all duration-200;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .markdown {
+    @apply prose max-w-none;
+  }
+}
+
+@layer utilities {
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(46, 204, 113, 0.8);
+    }
+  }
+}
